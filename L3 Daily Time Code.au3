@@ -10,11 +10,11 @@
     AutoIt Version: 3.3.14.5
     Author:         PZ
 
-    Script Function: Daily Time Code Tracker
+    Script Function: Daily Time Code Tracker v1.0
 
    TODO:
-   - 
-   
+   - Tray setup
+     
    
 
 
@@ -35,15 +35,15 @@
 
 $Form1 = GUICreate("Daily Time Charge Code", 505, 429, 192, 124)
 
-#Region DATE
-$tCur = GUICtrlCreateDate("", 150, 377, 200, 20, $DTS_SHORTDATEFORMAT)
-#EndRegion DATE
-
 $Label2 = GUICtrlCreateLabel("*Time", 180, 20, 200, 20)
 $Input2 = GUICtrlCreateInput("", 180, 40, 201, 22) ;time Input
 $Label1 = GUICtrlCreateLabel("Details", 180, 64, 200, 20)
 $Input1 = GUICtrlCreateEdit("", 180, 84, 200, 80) ;details input
 $Input3 = GUICtrlCreateInput("", 60, 125, 60, 22)  ;other time code input
+
+#Region DATE
+$tCur = GUICtrlCreateDate("", 150, 377, 200, 20, $DTS_SHORTDATEFORMAT)
+#EndRegion DATE
 
 #Region TIMECODES
 $Timecode1 = GUICtrlCreateRadio( "ECA Certs", 10, 20)
