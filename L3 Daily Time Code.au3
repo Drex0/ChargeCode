@@ -13,8 +13,7 @@
     Script Function: Daily Time Code Tracker v1.0
 
    TODO:
-   - Tray setup
-     
+   - Tray setup     
    
 
 
@@ -32,6 +31,9 @@
 #include <Constants.au3>
 #include <Misc.au3>
 #include <Date.au3>
+#include <MsgBoxConstants.au3>
+#include <StringConstants.au3>
+#include <TrayConstants.au3> ; Required for the $TRAY_ICONSTATE_SHOW constant.
 
 $Form1 = GUICreate("Daily Time Charge Code", 505, 429, 192, 124)
 
@@ -59,6 +61,8 @@ GUICtrlSendMsg(-1, $LVM_SETCOLUMNWIDTH, 0, 150)
 GUICtrlSendMsg(-1, $LVM_SETCOLUMNWIDTH, 1, 73)
 GUICtrlSendMsg(-1, $LVM_SETCOLUMNWIDTH, 2, 73)
 GUICtrlSendMsg(-1, $LVM_SETCOLUMNWIDTH, 3, 185)
+Global $hListMenu = GUICtrlCreateContextMenu($ListView1)
+Global $hDeleteMenuItem = GUICtrlCreateMenuItem("Delete", $hListMenu)
 $Button2 = GUICtrlCreateButton("Export to file", 400, 376, 89, 40, $BS_NOTIFY) 	;Save button
 GUICtrlSetCursor(-1, 0)
 $Button4 = GUICtrlCreateButton("Add Entry", 400, 39, 89, 125, $BS_NOTIFY) 		;Add button
@@ -110,7 +114,7 @@ While 1
 			_Excel_RangeWrite ( $oWorksheet, Default, $array )
 			_Excel_BookSaveAs ( $oWorksheet, $excel )
 			;_Excel_Export ( $oExcel, $oWorksheet, $exfile, Default, Default, Default, Default, Default, True )
-			_Excel_Close ( $oExcel )
+			;_Excel_Close ( $oExcel )
 		EndIf
 
 	Case $Input2
@@ -128,7 +132,11 @@ While 1
 			GUICtrlSetState($Input3, $GUI_DISABLE)
 		EndIf
 
-   	EndSwitch
+	Case $hDeleteMenuItem
+		_GUICtrlListView_DeleteItemsSelected($ListView1)
+   	
+	EndSwitch
+
 WEnd
 
 Func AddItem()
