@@ -1,6 +1,10 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
-#AutoIt3Wrapper_Icon=time-management-clock-small.ico
+#AutoIt3Wrapper_Icon=Assets\L3_clock.ico
 #AutoIt3Wrapper_UseX64=y
+#AutoIt3Wrapper_Res_Description=L3 Time Charge Code Tracker
+#AutoIt3Wrapper_Res_Fileversion=1.2.0.0
+#AutoIt3Wrapper_Res_ProductName=L3 Daily Charge Code
+#AutoIt3Wrapper_Res_CompanyName=Zachmanor
 #AutoIt3Wrapper_Res_SaveSource=y
 #AutoIt3Wrapper_Res_Language=1033
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
